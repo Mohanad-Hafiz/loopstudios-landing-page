@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Alata', sans-serif;
+    font-size: 15px;
+}
+
+.container {
+    width: 77%;
+    min-height: 100%;
+    margin: auto;
+    position: relative;
+}
+
+h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+}
+
+/* Header */
+header {
+    background-image: url(./images/desktop/image-hero.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 81.25vh;
+    color: white;
+}
+
+header::before {
+    content: '';
+    display: inline-block;
+    background-color: black;
+    width: 100%;
+    height: 81.25vh;
+    position: absolute;
+    top: 0;
+    opacity: 40%;
+}
+
+.logo {
+    position: absolute;
+    top: 8vh;
+}
+
+.header-nav {
+    position: absolute;
+    top: 9vh;
+    right: 0;
+    word-spacing: 2rem;
+}
+
+header h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    font-size: 4.3rem;
+    letter-spacing: 0.3rem;
+    position: absolute;
+    top: 28vh;
+    width: 45vw;
+    padding: 5vh;
+    border: solid white 2.5px;
+    font-weight: normal;
+}
+
+/* Section 1*/
+.section-1 {
+    width: 100%;
+    min-height: 800px;
+}
+
+.vr-guy {
+    position: absolute;
+    top: 20vh;
+}
+
+.section-1 h1 {
+    box-sizing: content-box;
+    position: absolute;
+    top: 45vh;
+    right: 0;
+    font-size: 3rem;
+    width: 30vw;
+    padding: 12vh;
+    padding-right: 0;
+    padding-bottom: 0;
+    font-weight: normal;
+    background-color: white;
+    z-index: 1;
+}
+
+.section-1 p {
+    box-sizing: content-box;
+    position: absolute;
+    top: 60vh;
+    right: 0;
+    width: 30vw;
+    padding: 12vh;
+    padding-right: 0;
+    padding-bottom: 5vh;
+    color: hsl(0, 0%, 55%);
+    background-color: white;
+}
+
+/* Section 2 */
+.section-2 {
+    width: 100%;
+    min-height: 1200px;
+}
+
+.section-2 h1 {
+    position: absolute;
+    /*top: 5vh;*/
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+.section-2 button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 10vw;
+    height: 5vh;
+    background: transparent;
+    border: solid 1px black;
+    /*font-family: 'Josefin Sans', sans-serif;*/
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.card {
+    width: 256px;
+    height: 450px;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+    box-shadow: inset black 0 0;
+}
+
+.card::before {
+    content: '';
+    display: inline-block;
+    width: 256px;
+    height: 450px;
+    box-shadow: inset 0 -30vh 50px -20px rgba(0, 0, 0, 0.5);
+}
+
+.card h1 {
+    position: absolute;
+    bottom: 0;
+    padding: 5vh;
+    font-size: 1.8rem;
+}
+
+.card-1 {
+    background-image: url(./images/desktop/image-deep-earth.jpg);
+}
+
+.card-2 {
+    background-image: url(./images/desktop/image-night-arcade.jpg);
+}
+
+.card-3 {
+    background-image: url(./images/desktop/image-soccer-team.jpg);
+}
+
+.card-4 {
+    background-image: url(./images/desktop/image-grid.jpg);
+}
+
+.card-5 {
+    background-image: url(./images/desktop/image-from-above.jpg);
+}
+
+.card-6 {
+    background-image: url(./images/desktop/image-pocket-borealis.jpg);
+}
+
+.card-7 {
+    background-image: url(./images/desktop/image-curiosity.jpg);
+}
+
+.card-8 {
+    background-image: url(./images/desktop/image-fisheye.jpg);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 3vh;
+    position: absolute;
+    top: 15vh;
+}
+
+footer {
+    height: 20vh;
+    background-color: black;
+    color: white;
+}
+
+.social-media {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 141px;
+    grid-gap: 15px;
+    position: absolute;
+    top: 45px;
+    right: 0;
+}
+
+footer p {
+    color: hsl(0, 0%, 55%);
+    position: absolute;
+    right: 0;
+    bottom: 40px;
+}
+
+.footer-nav {
+    position: absolute;
+    bottom: 40px;
+    word-spacing: 1.7rem;
+}
+
+.logo-bottom {
+    width: 140px;
+    position: absolute;
+    top: 45px;
+}
+
+.attribution {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
