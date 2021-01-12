@@ -27,7 +27,7 @@ header {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 81.25vh;
+    height: 731.25px;
     color: white;
 }
 
@@ -36,7 +36,7 @@ header::before {
     display: inline-block;
     background-color: black;
     width: 100%;
-    height: 81.25vh;
+    height: 731.25px;
     position: absolute;
     top: 0;
     opacity: 40%;
@@ -52,6 +52,15 @@ header::before {
     top: 9vh;
     right: 0;
     word-spacing: 2rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 351.5px;
+    gap: 10px;
+}
+
+.header-nav p {
+    cursor: pointer;
+    text-align: center;
 }
 
 header h1 {
@@ -61,13 +70,15 @@ header h1 {
     letter-spacing: 0.0697em;
     position: absolute;
     top: 28vh;
-    width: 45vw;
+    width: 43vw;
+    height: 406px;
     padding: 40px;
     border: solid white 2.5px;
     font-weight: normal;
 }
 
-.hamburger {
+.hamburger,
+.ham-close {
     display: none;
 }
 
@@ -100,7 +111,7 @@ header h1 {
 .section-1 p {
     box-sizing: content-box;
     position: absolute;
-    top: 480pxh;
+    top: 480px;
     right: 0;
     width: 30vw;
     padding: 12vh;
@@ -131,28 +142,38 @@ header h1 {
     height: 5vh;
     background: transparent;
     border: solid 1px black;
-    /*font-family: 'Josefin Sans', sans-serif;*/
     letter-spacing: 0.1rem;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .card {
     width: 256px;
     height: 450px;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
     color: white;
     position: relative;
     box-shadow: inset black 0 0;
 }
 
-.card::before {
+.card-background {
+    width: 256px;
+    height: 450px;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card::after {
     content: '';
     display: inline-block;
     width: 256px;
     height: 450px;
     box-shadow: inset 0 -30vh 50px -20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
 }
 
 .card h1 {
@@ -160,6 +181,21 @@ header h1 {
     bottom: 0;
     padding: 5vh;
     font-size: 1.8rem;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.card-background:hover {
+    cursor: pointer;
+    opacity: 35%;
+}
+
+.card:hover {
+    color: black;
+}
+
+.card:hover::after {
+    content: none;
 }
 
 .card-1 {
@@ -218,7 +254,11 @@ footer {
     right: 0;
 }
 
-footer p {
+.social-media img {
+    cursor: pointer;
+}
+
+.copyright {
     color: hsl(0, 0%, 55%);
     position: absolute;
     right: 0;
@@ -228,7 +268,15 @@ footer p {
 .footer-nav {
     position: absolute;
     bottom: 5vh;
-    word-spacing: 1.7rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 351.5px;
+    gap: 10px;
+}
+
+.footer-nav p {
+    cursor: pointer;
+    text-align: center;
 }
 
 .logo-bottom {
@@ -244,7 +292,8 @@ footer p {
     transform: translateX(-50%);
 }
 
-@media (max-width: 500px) {
+
+@media (max-width: 1024px) {
 
     html,
     body {
@@ -273,7 +322,39 @@ footer p {
     }
 
     .header-nav {
-        display: none;
+        grid-template-columns: none;
+        grid-template-rows: repeat(5, 1fr);
+        position: fixed;
+        top: 25vh;
+        left: 0;
+        z-index: 10;
+        gap: 5vh;
+        clip-path: circle(100px at 300% -50%);
+        -webkit-clip-path: circle(100px at 300% -90%);
+        transition: all 1s ease-out;
+    }
+
+    .header-nav.open {
+        clip-path: circle(2000px at 300% -50%);
+        -webkit-clip-path: circle(2000px at 300% -50%);
+    }
+
+    .header-nav::before {
+        content: '';
+        background-color: black;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;        
+    }
+
+    .header-nav p {
+        z-index: 10;
+        text-align: start;
+        margin-left: 10vw;
+        font-size: 2.5rem;
+        font-weight: 200;
     }
 
     .hamburger {
@@ -281,61 +362,74 @@ footer p {
         position: absolute;
         top: 5.5vh;
         right: 0;
+        cursor: pointer;
+    }
+
+    .ham-close {
+        display: none;
+        position: absolute;
+        top: 5.5vh;
+        right: 0;
+        cursor: pointer;
+        z-index: 100;
     }
 
     header h1 {
-        font-size: 2.3rem;
-        width: 100%;
+        width: 80%;
         padding: 20px;
         line-height: 1em;
+        height: auto;
     }
 
     /* Section 1 */
 
     .section-1 {
-        min-height: 720px;
+        min-height: 1300px;
     }
 
     .vr-guy {
         width: 100%;
-        top: 12vh;
+        top: 163.92px;
     }
 
     .section-1 h1 {
         padding: 0;
         width: 100%;
-        font-size: 2rem;
+        font-size: 4rem;
         text-align: center;
+        top: 800px;
     }
 
     .section-1 p {
+        font-size: 1.5rem;
         padding: 0;
         width: 90%;
         margin: auto;
         right: 50%;
         transform: translateX(50%);
-        top: 448px;
+        top: 900px;
         text-align: center;
         line-height: 1.5em;
     }
 
     /* Section 2 */
     .section-2 {
-        height: 1360px;
+        height: 1700px;
     }
 
     .section-2 h1 {
-        font-size: 2rem;
+        font-size: 4rem;
         width: 100%;
         text-align: center;
     }
 
-    .card {
+    .card,
+    .card-background {
         width: 100%;
         height: 120px;
     }
 
-    .card::before {
+    .card::after {
         width: 100%;
         height: 120px;
         box-shadow: inset 20vh 0 70px -20px rgba(0, 0, 0, 0.5);
@@ -413,11 +507,258 @@ footer p {
 
     .footer-nav {
         width: 60px;
+        height: 220px;
         text-align: center;
         top: 12vh;
         left: 50%;
         transform: translateX(-50%);
         line-height: 2.5rem;
+        grid-template-columns: none;
+        grid-template-rows: repeat(5, 1fr);
+        gap: 5px;
+    }
+
+    .social-media {
+        top: auto;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .copyright {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        bottom: 20px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 87.2%;
+        min-height: 100%;
+    }
+
+    /* Header */
+    header {
+        background-image: url(./images/mobile/image-hero.jpg);
+        height: 81.25vh;
+    }
+
+    header::before {
+        content: none;
+    }
+
+    .logo {
+        width: 40vw;
+        top: 5vh;
+    }
+
+    .header-nav {
+        grid-template-columns: none;
+        grid-template-rows: repeat(5, 1fr);
+        position: fixed;
+        top: 25vh;
+        left: 0;
+        z-index: 10;
+        gap: 5vh;
+        clip-path: circle(100px at 120% -50%);
+        -webkit-clip-path: circle(100px at 120% -90%);
+        transition: all 1s ease-out;
+    }
+
+    .header-nav.open {
+        clip-path: circle(1200px at 120% -50%);
+        -webkit-clip-path: circle(1200px at 120% -50%);
+    }
+
+    .header-nav::before {
+        content: '';
+        background-color: black;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;        
+    }
+
+    .header-nav p {
+        z-index: 10;
+        text-align: start;
+        margin-left: 10vw;
+        font-size: 2.5rem;
+        font-weight: 200;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 5.5vh;
+        right: 0;
+        cursor: pointer;
+    }
+
+    .ham-close {
+        display: none;
+        position: absolute;
+        top: 5.5vh;
+        right: 0;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    header h1 {
+        font-size: 2.3rem;
+        width: 100%;
+        padding: 20px;
+        line-height: 1em;
+        height: auto;
+    }
+
+    /* Section 1 */
+
+    .section-1 {
+        min-height: 720px;
+    }
+
+    .vr-guy {
+        width: 100%;
+        top: 12vh;
+    }
+
+    .section-1 h1 {
+        padding: 0;
+        width: 100%;
+        font-size: 2rem;
+        text-align: center;
+        top: 360px;
+    }
+
+    .section-1 p {
+        font-size: 1rem;
+        padding: 0;
+        width: 90%;
+        margin: auto;
+        right: 50%;
+        transform: translateX(50%);
+        top: 448px;
+        text-align: center;
+        line-height: 1.5em;
+    }
+
+    /* Section 2 */
+    .section-2 {
+        height: 1360px;
+    }
+
+    .section-2 h1 {
+        font-size: 2rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .card,
+    .card-background {
+        width: 100%;
+        height: 120px;
+    }
+
+    .card::after {
+        width: 100%;
+        height: 120px;
+        box-shadow: inset 20vh 0 70px -20px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-1 {
+        background-image: url(./images/mobile/image-deep-earth.jpg);
+    }
+    
+    .card-2 {
+        background-image: url(./images/mobile/image-night-arcade.jpg);
+    }
+    
+    .card-3 {
+        background-image: url(./images/mobile/image-soccer-team.jpg);
+    }
+    
+    .card-4 {
+        background-image: url(./images/mobile/image-grid.jpg);
+    }
+    
+    .card-5 {
+        background-image: url(./images/mobile/image-from-above.jpg);
+    }
+    
+    .card-6 {
+        background-image: url(./images/mobile/image-pocket-borealis.jpg);
+    }
+    
+    .card-7 {
+        background-image: url(./images/mobile/image-curiosity.jpg);
+    }
+    
+    .card-8 {
+        background-image: url(./images/mobile/image-fisheye.jpg);
+    }
+    
+    .grid-container {
+        grid-template-columns: none;
+        grid-template-rows: repeat(8, 1fr);
+        width: 100%;
+    }
+
+    .card h1 {
+        left: 0;
+        font-size: 1.4rem;
+        padding: 5%;
+        width: 50%;
+        text-align: start;
+    }
+
+    .section-2 button {
+        position: absolute;
+        top: auto;
+        right: auto;
+        bottom: 5vh;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40vw;
+        border: solid hsl(0, 0%, 41%) 2px;
+        font-weight: bold;
+        letter-spacing: 0.2em;
+    }
+
+    /* Footer */
+    footer {
+        height: 472px;
+    }
+
+    .logo-bottom {
+        top: 7vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-nav {
+        width: 60px;
+        height: 220px;
+        text-align: center;
+        top: 12vh;
+        left: 50%;
+        transform: translateX(-50%);
+        line-height: 2.5rem;
+        grid-template-columns: none;
+        grid-template-rows: repeat(5, 1fr);
+        gap: 5px;
     }
 
     .social-media {
@@ -427,12 +768,12 @@ footer p {
         transform: translateX(-50%);
     }
 
-    footer p {
+    .copyright {
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
         text-align: center;
-        bottom: 7vh;
+        bottom: 50px;
     }
 
 }
